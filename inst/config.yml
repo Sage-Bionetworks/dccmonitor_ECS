@@ -110,7 +110,7 @@ amp-ad:
       - "specimenID"
 
 pec:
-  app_url: "https://shinypro.synapse.org/users/kmontgomery/dccmonitor/"
+  app_url: "https://shinypro.synapse.org/users/danlu/dccmonitor-pec/"
   samples_table: "syn22175287"
   annotations_table: "syn20981788"
   annotations_storage: "syn21763155"
