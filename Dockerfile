@@ -7,9 +7,6 @@ COPY --chown=shiny ./ ./
 RUN Rscript -e "install.packages('reticulate', repos='http://cran.rstudio.com/', verbose=FALSE)"
 RUN Rscript -e "library(reticulate); install_miniconda(); py_discover_config(); py_install(c('synapseclient', 'pandas'), pip = TRUE, pip_ignore_installed=TRUE)"
 
-# alternative to using renv
-#RUN Rscript -e "install.packages(c('shinydashboard','tidyverse','readxl','gt','gtsummary','survival','survminer','rsconnect','janitor','rjson'), repos='http://cran.rstudio.com/', verbose=FALSE)"
-
 # By default the log level is TRACE.  We bump up one level to DEBUG to make the logs a bit less verbose
 ENV SHINY_LOG_LEVEL=DEBUG
 

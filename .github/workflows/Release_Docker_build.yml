@@ -1,7 +1,7 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/master/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 
-name: Create and publish a Docker image
+name: Create Github release and generate Docker image
 
 on:
   push:
@@ -33,6 +33,7 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}  
 
   build-and-push-image:
+    needs: tagging
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -55,6 +56,7 @@ jobs:
         uses: docker/metadata-action@v4.1.1
         with:
           images: ${{ env.IMAGE_PATH }}
+          tags: ${{ needs.tagging.outputs.tag}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3.2.0

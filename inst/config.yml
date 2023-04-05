@@ -110,7 +110,6 @@ amp-ad:
       - "specimenID"
 
 pec:
-  #app_url: "https://shinypro.synapse.org/users/danlu/dccmonitor-pec/"
   samples_table: "syn22175287"
   annotations_table: "syn20981788"
   annotations_storage: "syn21763155"
@@ -176,7 +175,6 @@ pec:
       - "runType"
 
 1kD:
-  #app_url: "https://shinypro.synapse.org/users/danlu/dccmonitor_1kD/"
   samples_table: "syn27817789"
   annotations_table: "syn27806892"
   annotations_storage: "syn27605404"
