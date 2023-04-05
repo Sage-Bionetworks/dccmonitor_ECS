@@ -78,3 +78,17 @@ A brief overview of the dccvalidator specific configurations are below, but more
 
 dccmonitor uses the [dccvalidator's `check_all()`](https://github.com/Sage-Bionetworks/dccvalidator/blob/master/R/check-all.R) to validate the metadata and manifest files. Currently, there is not a simple way to change the validation checks that are done.
 
+### Dockerize the App
+## Authentication
+The dccmonitor can be authorized to log in to Synapse using Synapse Authentication (OAuth) client. Please view instructions [here](https://help.synapse.org/docs/Using-Synapse-as-an-OAuth-Server.2048327904.html#UsingSynapseasanOAuthServer-RegisteringandLinkinganOAuth2.0Client) to learn how to request a client. Our OAuth clients were created using Synapse service accounts in order to enable multiple Sage employees to maintain the applications. In the Shared-SysBio LastPass folder, credentials for each client are recorded. In the notes section of the credentials (click on the entry > Edit to see notes), the service account used to create the client is noted.
+
+## Build a docker image using Dockerfile
+```
+docker build -t dccmonitor_ECS -f Dockerfile .  
+```
+
+## Create a container from the docker image
+```
+docker run --rm -it -p 8100:3838 -e APP_REDIRECT_URL=<APP_REDIRECT_URL> -e R_CONFIG_ACTIVE=<configuration name in /inst/config.yml. e.g pec or 1kD > -e client_id=<Oauth client id> -e client_name=<Oauth client name> -e client_secret=<Oauth client secret> --name <container name> dccmonitor_ECS 
+```
+Once the container is created, you can head to the APP_REDIRECT_URL you specified to enter the app. 
