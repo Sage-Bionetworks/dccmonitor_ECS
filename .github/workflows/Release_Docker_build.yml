@@ -16,6 +16,8 @@ env:
 jobs:
   tagging:
     runs-on: ubuntu-latest
+    outputs:
+      tag: ${{steps.tag_version.outputs.new_tag}}
     steps:
       - uses: actions/checkout@v3
         with:
