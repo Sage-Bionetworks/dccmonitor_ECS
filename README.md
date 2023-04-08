@@ -84,11 +84,11 @@ The dccmonitor can be authorized to log in to Synapse using Synapse Authenticati
 
 ## Build a docker image using Dockerfile
 ```
-docker build -t dccmonitor_ECS -f Dockerfile .  
+docker build -t dccmonitor_ecs -f Dockerfile .  
 ```
 
 ## Create a container from the docker image
 ```
-docker run --rm -it -p 8100:3838 -e APP_REDIRECT_URL=<APP_REDIRECT_URL> -e R_CONFIG_ACTIVE=<configuration name in /inst/config.yml. e.g pec or 1kD > -e client_id=<Oauth client id> -e client_name=<Oauth client name> -e client_secret=<Oauth client secret> --name <container name> dccmonitor_ECS 
+docker run --rm -it -p 8100:3838 -e APP_REDIRECT_URL=<APP_REDIRECT_URL> -e R_CONFIG_ACTIVE=<configuration name in /inst/config.yml. e.g pec or 1kD > -e client_id=<Oauth client id> -e client_name=<Oauth client name> -e client_secret=<Oauth client secret> --name <container name> dccmonitor_ecs 
 ```
 Once the container is created, you can head to the APP_REDIRECT_URL you specified to enter the app. 
