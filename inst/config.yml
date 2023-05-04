@@ -111,7 +111,7 @@ amp-ad:
       - "individualID"
       - "specimenID"
       - "organ"
-      - "tissue:
+      - "tissue"
       - "assay"
     assay:
       - "specimenID"
