@@ -209,8 +209,6 @@ pec:
       - "project"
       - "study"
       - "resourceType"
-      - "timepoint"
-      - "age_in_days"
     individual:
       - "project"
       - "study"
